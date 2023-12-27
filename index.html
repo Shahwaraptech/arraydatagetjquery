@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Practise</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main-container {
+            height: 100vh;
+            width: 100%;
+            padding: 50px 15px;
+        }
+
+        .heading {
+            color: rgb(160, 118, 2);
+            text-shadow: 1px -2px 6px rgb(145, 143, 35);
+            font-size: 50px;
+            text-align: center;
+            font-family: cursive;
+        }
+
+        #employ-list {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        #employ-list li {
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            padding: 10px;
+            color: rgb(160, 118, 2);
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 10px 15px;
+        }
+
+        #employ-list li:hover {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+
+        .nameZoom {
+            transform: scale(1.2);
+        }
+
+    </style>
+
+</head>
+<body>
+
+    
+
+    <div class="main-container">
+
+        <h1 class="heading">Employee List</h1>
+
+        <ul id="employ-list"></ul>
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+      <script>
+        $(document).ready(function () {
+    
+            var list = $("#employ-list");
+    
+            var employ = ["Abdul Ahad", "Muhammad Faizan", "Muhammad Riaz", "Shahwar Ali Rajpoot", "Asjad Siddiqui"];
+    
+            $.each(employ, function (index, value) {
+                var listItem = $("<li> " + value + " </li>");
+    
+                listItem.click(function () {
+                    $("#employ-list li").removeClass("nameZoom");
+                    $(this).addClass("nameZoom");
+                });
+    
+                list.append(listItem);
+                // console.log(index + " " + value);
+            });
+    
+        });
+    </script>
+
+
+</body>
+</html>
